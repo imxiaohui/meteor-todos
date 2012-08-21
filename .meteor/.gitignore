@@ -1,7 +1,1 @@
 local
-.idea
-*~
-*.lock
-*.DS_Store
-*.swp
-*.out
