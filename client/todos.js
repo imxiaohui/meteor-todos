@@ -37,6 +37,7 @@ Meteor.autosubscribe(function () {
     Meteor.subscribe('todos', list_id);
 });
 
+// hello
 
 ////////// Helpers for in-place editing //////////
 
