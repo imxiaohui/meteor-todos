@@ -115,7 +115,7 @@ Template.lists.events[ okcancel_events('#new-list') ] =
   make_okcancel_handler({
     ok: function (text, evt) {
       var id = Lists.insert({name: text});
-      Router.setList(id);
+      Router.setList(text);
       evt.target.value = "";
     }
   });
