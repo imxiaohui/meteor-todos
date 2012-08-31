@@ -288,6 +288,15 @@ Template.tag_filter.events = {
       Session.set('tag_filter', null);
     else
       Session.set('tag_filter', this.tag);
+  },
+  'click .clear-items': function() {
+    if (confirm('Are you sure you want to remove all todo items from the current list? This action cannot be undone.')) {
+      var list_id = Session.get('list_id');
+      if (!list_id)
+        return;
+
+      Todos.remove({list_id: list_id});
+    }
   }
 };
 
