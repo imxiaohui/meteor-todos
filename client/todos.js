@@ -308,7 +308,9 @@ var TodosRouter = Backbone.Router.extend({
   },
   main: function (list_name) {
     var list = Lists.findOne({name: list_name});
-    Session.set("list_id", list._id);
+    if (list) {
+      Session.set("list_id", list._id);
+    }
     Session.set("tag_filter", null);
   },
   setList: function (list_name) {
