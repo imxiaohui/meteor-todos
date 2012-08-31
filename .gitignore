@@ -4,3 +4,5 @@
 *.xml
 
 .idea/todos.iml
+
+._.gitignore
