@@ -224,8 +224,30 @@ Template.todo_item.events = {
     Meteor.setTimeout(function () {
       Todos.update({_id: id}, {$pull: {tags: tag}});
     }, 300);
-  }
+  },
+  'click .move-up': function() {
+    var todos = Template.todos.todos().fetch();
+    var currentItemIndex = todoRanking(this, todos);
 
+    if (currentItemIndex > 0) {
+      var todoAboveMe = todos[currentItemIndex - 1];
+      Todos.update(this._id, {$set: {timestamp: todoAboveMe.timestamp - 1}});
+    }
+  },
+  'click .move-down': function() {
+    var todos = Template.todos.todos().fetch();
+    var currentItemIndex = todoRanking(this, todos);
+
+    if (currentItemIndex < todos.length -1) {
+      var todoBelowMe = todos[currentItemIndex + 1];
+      Todos.update(this._id, {$set: {timestamp: todoBelowMe.timestamp + 1}});
+    }
+  }
+};
+
+var todoRanking = function(todoItem, todoArray) {
+  var ids = todoArray.map(function (todo) { return todo._id; });
+  return ids.indexOf(todoItem._id);
 };
 
 Template.todo_item.events[ okcancel_events('#todo-input') ] =

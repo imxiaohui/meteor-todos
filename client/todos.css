@@ -175,6 +175,26 @@ h3 {
 #item-list .todo .destroy {
     cursor: pointer;
     position: absolute;
+    margin-left: 50px;
+    left: 5px;
+    top: 15px;
+    height: 20px;
+    width: 20px;
+}
+
+#item-list .todo .move-up {
+    cursor: pointer;
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    height: 20px;
+    width: 20px;
+}
+
+#item-list .todo .move-down {
+    cursor: pointer;
+    position: absolute;
+    margin-left: 25px;
     left: 5px;
     top: 15px;
     height: 20px;
@@ -182,7 +202,7 @@ h3 {
 }
 
 #item-list .todo .display, #item-list .todo .edit {
-    margin-left: 30px;
+    margin-left: 80px;
     height: 100%;
     width: auto;
     float: left;
@@ -206,6 +226,22 @@ h3 {
 }
 
 #item-list .todo .destroy:hover {
+    background-position: 0 -20px;
+}
+
+#item-list .todo:hover .move-up {
+    background: url('/arrowup.png') no-repeat 0 0;
+}
+
+#item-list .todo .move-up:hover {
+    background-position: 0 -20px;
+}
+
+#item-list .todo:hover .move-down {
+    background: url('/arrowdown.png') no-repeat 0 0;
+}
+
+#item-list .todo .move-down:hover {
     background-position: 0 -20px;
 }
 
